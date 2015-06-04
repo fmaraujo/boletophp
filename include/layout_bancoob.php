@@ -1,11 +1,11 @@
 <?php
 // +----------------------------------------------------------------------+
-// | BoletoPhp - Versão Beta                                              |
+// | BoletoPhp - VersÃ£o Beta                                              |
 // +----------------------------------------------------------------------+
-// | Este arquivo está disponível sob a Licença GPL disponível pela Web   |
+// | Este arquivo estÃ¡ disponÃ­vel sob a LicenÃ§a GPL disponÃ­vel pela Web   |
 // | em http://pt.wikipedia.org/wiki/GNU_General_Public_License           |
-// | Você deve ter recebido uma cópia da GNU Public License junto com     |
-// | esse pacote; se não, escreva para:                                   |
+// | VocÃª deve ter recebido uma cÃ³pia da GNU Public License junto com     |
+// | esse pacote; se nÃ£o, escreva para:                                   |
 // |                                                                      |
 // | Free Software Foundation, Inc.                                       |
 // | 59 Temple Place - Suite 330                                          |
@@ -13,16 +13,16 @@
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Originado do Projeto BBBoletoFree que tiveram colaborações de Daniel |
+// | Originado do Projeto BBBoletoFree que tiveram colaboraÃ§Ãµes de Daniel |
 // | William Schultz e Leandro Maniezo que por sua vez foi derivado do	  |
-// | PHPBoleto de João Prado Maia e Pablo Martins F. Costa                |
+// | PHPBoleto de JoÃ£o Prado Maia e Pablo Martins F. Costa                |
 // |                                                                      |
 // | Se vc quer colaborar, nos ajude a desenvolver p/ os demais bancos :-)|
 // | Acesse o site do Projeto BoletoPhp: www.boletophp.com.br             |
 // +----------------------------------------------------------------------+
 
 // +----------------------------------------------------------------------+
-// | Equipe Coordenação Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
+// | Equipe CoordenaÃ§Ã£o Projeto BoletoPhp: <boletophp@boletophp.com.br>   |
 // | Desenvolvimento Boleto BANCOOB/SICOOB: Marcelo de Souza              |
 // | Ajuste de algumas rotinas: Anderson Nuernberg                        |
 // +----------------------------------------------------------------------+
@@ -34,15 +34,13 @@
 <head>
 <title><?php echo $dadosboleto["identificacao"]; ?></title>
 <META http-equiv=Content-Type content=text/html charset=ISO-8859-1>
-<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - Licença GPL" />
+<meta name="Generator" content="Projeto BoletoPHP - www.boletophp.com.br - LicenÃ§a GPL" />
 	
 <style type="text/css">
 <!--
 .ti {font: 9px Arial, Helvetica, sans-serif}
 -->
 </style>
-</HEAD>
-<BODY>
 <STYLE>
 
 @media screen,print {
@@ -80,13 +78,32 @@
 	padding: 0;
 }
 
+#imprimir {
+    width: 666px;
+    margin-top: 10px;
+    padding: 0;
+    text-align: center;
+}
+
+#imprimir button {
+    width: 180px;
+    height: 30px;
+}
+
+
+
 
 /* *** CABECALHO *** */
 
 #instr_header {
-	background: url('imagens/logo_empresa.png') no-repeat top left;
-	padding-left: 160px;
-	height: 65px;
+	padding-left: 0;
+	height: 75px;
+}
+
+    #instr_header img {
+    float: left;
+    top: 5px;
+    left: 10px;
 }
 
 #instr_header h1 {
@@ -141,7 +158,7 @@
 #boleto .cut p {
 	margin: 0 0 5px 0;
 	padding: 0px;
-	font-family: 'Arial Narrow';
+	font-family: 'Open Sans Condensed';
 	font-size: 9px;
 	color: black;
 }
@@ -184,7 +201,7 @@ table.line {
 
 table.line tr.titulos td {
 	height: 13px;
-	font-family: 'Arial Narrow';
+	font-family: 'Open Sans Condensed';
 	font-size: 9px;
 	color: black;
 	border-left: 5px #000000 solid;
@@ -459,11 +476,11 @@ div.footer {
 }
 
 div.footer p {
-	width: 88px;
+	width: 666px;
 	margin: 0;
 	padding: 0;
-	padding-left: 525px;
-	font-family: 'Arial Narro';
+	/*padding-left: 525px;*/
+	/*font-family: 'Arial Narro';*/
 	font-size: 9px;
 	color: black;
 }
@@ -486,6 +503,14 @@ div.barcode {
 	overflow: hidden;
 }
 
+    #imprimir {
+        margin:0px;
+        width: 1px;
+        height: 0px;
+        visibility: hidden;
+        overflow: hidden;
+    }
+
 }
 
 </STYLE>
@@ -495,15 +520,15 @@ div.barcode {
 
 <div id="container">
 
-	<div id="instr_header">
-		<h1><?php echo $dadosboleto["identificacao"]; ?> <?php echo isset($dadosboleto["cpf_cnpj"]) ? $dadosboleto["cpf_cnpj"] : '' ?></h1>
-		<address><?php echo $dadosboleto["endereco"]; ?><br></address>
-		<address><?php echo $dadosboleto["cidade_uf"]; ?></address>
-	</div>	<!-- id="instr_header" -->
+    <div id="instr_header">
+        <img src="http://ipetecnologia.com.br/img/logo-azul-157.png" style="margin: 0 10px 0 0">
+        <h1><?php echo $dadosboleto["identificacao"]; ?> <br/><?php echo isset($dadosboleto["cpf_cnpj"]) ? $dadosboleto["cpf_cnpj"] : '' ?></h1>
+        <address><?php echo $dadosboleto["endereco"] . " " . $dadosboleto["cidade_uf"]; ?><br></address>
+    </div>	<!-- id="instr_header" -->
 
-	<div id="">
+	<div id="instructions">
 <!--
-  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruções
+  Use no lugar do <div id=""> caso queira imprimir sem o logotipo e instruÃ§Ãµes
   <div id="instructions">
  -->
 		
@@ -527,6 +552,11 @@ div.barcode {
 				a regi&atilde;o onde se encontra o c&oacute;digo de barras
 			</li>
 			</ol>
+
+            <div id="imprimir">
+                <button type="button" onclick="window.print()"> Imprimir Boleto </button>
+            </div>
+
 		</div>	<!-- id="instr_content" -->
 	</div>	<!-- id="instructions" -->
 	
@@ -538,7 +568,7 @@ div.barcode {
 		<table class="header" border=0 cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr>
-			<td width=150><IMG SRC="imagens/logobancoob.jpg"></td>
+			<td width=150><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg"></td>
 			<td width=50>
         <div class="field_cod_banco"><?php echo $dadosboleto["codigo_banco_com_dv"]?></div>
 			</td>
@@ -631,7 +661,7 @@ div.barcode {
 		<table class="header" border=0 cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr>
-			<td width=150><IMG SRC="imagens/logobancoob.jpg"></td>
+			<td width=150><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg"></td>
 			<td width=50>
         <div class="field_cod_banco"><?php echo $dadosboleto["codigo_banco_com_dv"]?></div>
 			</td>
@@ -692,7 +722,7 @@ div.barcode {
 		<tr class="titulos">
 			<td class="reservado">Uso do  banco</td>
 			<td class="carteira">Carteira</td>
-			<td class="especie2">Espécie</td>
+			<td class="especie2">EspÃ©cie</td>
 			<td class="qtd2">Quantidade</td>
 			<td class="xvalor">x Valor</td>
 			<td class="valor_doc2">(=) Valor documento</td>
@@ -724,10 +754,13 @@ div.barcode {
 					<p><?php echo $dadosboleto["demonstrativo1"]; ?></p>		
 					<p><?php echo $dadosboleto["demonstrativo2"]; ?></p>
 					<p><?php echo $dadosboleto["demonstrativo3"]; ?></p>
-					<p><?php echo $dadosboleto["instrucoes1"]; ?></p>
+                    <p>&nbsp;</p>
+                    <p><?php echo $dadosboleto["instrucoes1"]; ?></p>
 					<p><?php echo $dadosboleto["instrucoes2"]; ?></p>
 					<p><?php echo $dadosboleto["instrucoes3"]; ?></p>
 					<p><?php echo $dadosboleto["instrucoes4"]; ?></p>
+					<p><?php echo $dadosboleto["instrucoes5"]; ?></p>
+					<p><?php echo $dadosboleto["instrucoes6"]; ?></p>
 				</td>
 			</tr>
 			</tbody>
@@ -840,9 +873,10 @@ div.barcode {
 		<div class="cut">
 			<p>Corte na linha pontilhada</p>
 		</div>
-
 	</div>
-
+    <div id="imprimir">
+        <button type="button" onclick="window.print()"> Imprimir Boleto </button>
+    </div>
 </div>
 
 </body>
