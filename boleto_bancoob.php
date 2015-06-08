@@ -71,9 +71,9 @@ if(!function_exists('formata_numdoc'))
 }
 
 $IdDoSeuSistemaAutoIncremento = '2'; // Deve informar um numero sequencial a ser passada a função abaixo, Até 6 dígitos
-$agencia = "3087"; // Num da agencia, sem digito
-$conta = "4593"; // Num da conta, sem digito
-$convenio = "56235"; //Número do convênio indicado no frontend
+$agencia = "3224"; // Num da agencia, sem digito
+$conta = "13028"; // Num da conta, sem digito
+$convenio = "206849"; //Número do convênio indicado no frontend
 
 $NossoNumero = formata_numdoc($IdDoSeuSistemaAutoIncremento,7);
 $qtde_nosso_numero = strlen($NossoNumero);
