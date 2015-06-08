@@ -187,9 +187,9 @@ table.header div.field_cod_banco {
 }
 
 table.header td.linha_digitavel {
-	width: 464px;
+	width: 479px;
 	text-align: right;
-	font: bold 11px Arial;
+	font: bold 13px Arial;
 	color: black
 }
 
@@ -568,7 +568,7 @@ div.barcode {
 		<table class="header" border=0 cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr>
-			<td width=150><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg"></td>
+			<td width=135><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg" width="135px"></td>
 			<td width=50>
         <div class="field_cod_banco"><?php echo $dadosboleto["codigo_banco_com_dv"]?></div>
 			</td>
@@ -661,7 +661,7 @@ div.barcode {
 		<table class="header" border=0 cellspacing="0" cellpadding="0">
 		<tbody>
 		<tr>
-			<td width=150><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg"></td>
+            <td width=135><IMG SRC="<?php echo IMG_ROOT; ?>boleto/logobancoob.jpg" width="135px"></td>
 			<td width=50>
         <div class="field_cod_banco"><?php echo $dadosboleto["codigo_banco_com_dv"]?></div>
 			</td>
