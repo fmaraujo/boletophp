@@ -189,7 +189,7 @@ table.header div.field_cod_banco {
 table.header td.linha_digitavel {
 	width: 464px;
 	text-align: right;
-	font: bold 13px Arial;
+	font: bold 11px Arial;
 	color: black
 }
 
